@@ -1,69 +1,80 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from "./Slider.module.scss";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-
-export default function Slider() {
-
-const [activeImage, setActiveImage] = useState();
-
-const goToNextPage = () => {
-    if(activeImage === SlideItems.length -1) {
-        setActiveImage(0);
-    }
-    setActiveImage(activeImage +1);
-    console.log(activeImage);
-}
-
-const goToPreviousPage = () => {
-    setActiveImage(activeImage -1);
-    console.log(activeimage -1);
-    console.log(activeImage);
-}
-
 
 const SlideItems = [
     {
         id: 1,
-        title: "Test Titlte for Slider 1",
-        description: "Small Description for Slider 1",
+        title: "Color Palettes",
+        description: "Discover beautiful color combinations for your projects",
         Img: "./images/ColorPalettes.png",
-        alt: "Slider Alt for Slide 1",
+        alt: "Color Palettes Collection",
     },
     {
         id: 2,
-        title: "Test Titlte for S Slider 2",
-        description: "Small Description for Slider 2",
-        Img: "./images/ColorPalettes.png",
-        alt: "Slider Alt for Slide 1",
+        title: "Dark Themes",
+        description: "Modern dark mode designs for a sleek look",
+        Img: "./images/DarkDefault.png",
+        alt: "Dark Theme Examples",
     },
     {
         id: 3,
-        title: "Test Titlte for Slider 3",
-        description: "Small Description for Slider 3",
-        Img: "./images/ColorPalettes.png",
-        alt: "Slider Alt for Slide 1",
+        title: "Golden Bee",
+        description: "Premium golden bee design elements",
+        Img: "./images/GoldenBee.webp",
+        alt: "Golden Bee Design",
     },
 ];
 
+export default function Slider() {
+    const [currentSlide, setCurrentSlide] = useState(0);
 
-  return (
-    <div className="app">
-      <h1>Slider</h1>
-      <ChevronLeft size={32} className={styles.iconLeft} onClick={goToPreviousPage}/>
-      <ChevronRight size={32} className={styles.iconRight} onClick={goToNextPage}/>
+    const goToNext = () => {
+        if (currentSlide === SlideItems.length - 1) {
+            setCurrentSlide(0);
+        } else {
+            setCurrentSlide(currentSlide + 1);
+        }
+    };
 
-      {SlideItems.map((element, index) => (
-        <div className={styles.parentContainer} key={index.id}>
-            <img src={element.Img} alt={element.alt} className={styles.sliderImg}/>
-            <div className={styles.TextArea}>
-                <h1>{element.title}</h1>
-                <p>{element.description}</p>
+    const goToPrevious = () => {
+        if (currentSlide === 0) {
+            setCurrentSlide(SlideItems.length - 1);
+        } else {
+            setCurrentSlide(currentSlide - 1);
+        }
+    };
+
+    return (
+        <div className={styles.sliderContainer}>
+            <div className={styles.sliderContent}>
+                <img 
+                    src={SlideItems[currentSlide].Img} 
+                    alt={SlideItems[currentSlide].alt} 
+                    className={styles.sliderImg}
+                />
+                <div className={styles.textArea}>
+                    <h2>{SlideItems[currentSlide].title}</h2>
+                    <p>{SlideItems[currentSlide].description}</p>
+                </div>
+            </div>
+            
+            <button className={styles.navButtonLeft} onClick={goToPrevious}>
+                <ChevronLeft size={24} />
+            </button>
+            <button className={styles.navButtonRight} onClick={goToNext}>
+                <ChevronRight size={24} />
+            </button>
+            
+            <div className={styles.dots}>
+                {SlideItems.map((emptry, index) => (
+                    <button
+                        key={index}
+                        className={index === currentSlide ? styles.dotActive : styles.dotInactive}
+                        onClick={() => setCurrentSlide(index)}
+                    />
+                ))}
             </div>
         </div>
-      ))}
-
-
-    </div>
-  );
+    );
 }

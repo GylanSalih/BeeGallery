@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { X, Menu, AudioLines, Search } from "lucide-react";
+import { X, Menu, AudioLines, Search, Plus, Trash2, Eye, Filter, ChevronDown } from "lucide-react";
 
 // import Styles
 import styles from "./Filterbar.module.scss";
@@ -10,34 +10,81 @@ import styles from "./Filterbar.module.scss";
 //     setIsSearch(e.target.value);
 // }
 
+// Stackoverflow dropdown
 export default function Filterbar() {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedFilter, setSelectedFilter] = useState("All");
+
+  const filterOptions = [
+    "All",
+    "Design",
+    "Development", 
+    "Photography",
+    "Art",
+    "UI/UX",
+    "Branding"
+  ];
+
   return (
-    <div className="app">
-      <h1>Filterbar</h1>
+    <div className={styles.filterbarContainer}>
+      {/* Filters Section */}
+      <div className={styles.filtersSection}>
+        <p className={styles.filtersLabel}>Filters</p>
+        
+        <div className={styles.filtersRow}>
+          {/* Search Form */}
+          <form className={styles.searchContainer}>
+            <Search size={20} className={styles.searchIcon} />
+            <input type="search" placeholder="Search your Items" name="searchbar" />
+            <button type="submit" className={styles.submitBtn}>Search</button>
+          </form>
 
-      {/* value={value} onChange={() => changeHandler(e)} */}
-      <form className={styles.searchContainer}>
-        <Search size={24} className={styles.searchIcon} />
-        <input type="search" placeholder="Search your Items" name="searchbar" />
-        <button type="submit" className={styles.submitBtn}>Search</button>
-      </form>
+          {/* Filter Dropdown */}
+          <div className={styles.dropdownContainer}>
+            <button 
+              className={styles.dropdownButton}
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              <Filter size={16} />
+              {selectedFilter}
+              <ChevronDown size={16} />
+            </button>
+            
+            {isDropdownOpen && (
+              <div className={styles.dropdownMenu}>
+                {filterOptions.map((option) => (
+                  <button
+                    key={option}
+                    className={`${styles.dropdownItem} ${selectedFilter === option ? styles.active : ''}`}
+                    onClick={() => {
+                      setSelectedFilter(option);
+                      setIsDropdownOpen(false);
+                    }}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
 
-      <div className={styles.ParentContainer}>
-        <div className={styles.BtnContainer}>
-          <p>Filters</p>
-          <button className={styles.FilterBtns}>Add More</button>
-          <button className={styles.FilterBtns}>Delete</button>
-          <button className={styles.FilterBtns}>View Project</button>
-          <button className={styles.FilterBtns}>View Project</button>
+          {/* Action Buttons */}
+          <div className={styles.BtnContainer}>
+            <button className={styles.FilterBtns}>
+              <Plus size={16} />
+              Add Item
+            </button>
+            <button className={styles.FilterBtns}>
+              <Trash2 size={16} />
+              Delete
+            </button>
+            <button className={styles.FilterBtns}>
+              <Eye size={16} />
+              Preview
+            </button>
+          </div>
         </div>
       </div>
-
-      {/* ist eine Auflistung mit zahlen 1.xx 2.yy 3.zzz */}
-      {/* <ol className={styles.ol}>
-        <li className={styles.li}>
-            hey
-        </li>
-      </ol> */}
     </div>
   );
 }

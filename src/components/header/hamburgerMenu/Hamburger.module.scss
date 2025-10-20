@@ -1,27 +1,26 @@
 .mainWrapper {
-    width: 100%;
-    height: 100%;
-    background-color: green;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
     z-index: 999;
-    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
     transition: 0.4s ease-in-out;
-    min-width: 380px;
 }
 
 .ParentContainer {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    background-color: rgba(35, 33, 44, 0.95);
+    align-items: center;
     position: relative;
     text-align: center;
-    align-items: center;
-
-
 }
 
 /* --------------------- CloseIcon Area --------------------- */
@@ -40,36 +39,43 @@
 /* --------------------- Nav Area --------------------- */
 
 .navLinksMobile {
-    padding-top: 300px;
-    justify-content: center;
-    text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
 .link {
-    font-size: 36px;
+    font-size: 2.5rem;
     font-family: 'Wotfard';
     color: white;
-    line-height: 5.5rem;
     text-decoration: none;
+    transition: color 0.3s ease;
+    
+    &:hover {
+        color: #fbbf24;
+    }
 }
 
 /* --------------------- Socials Bottom --------------------- */
 
 .socialMedia {
-    min-height: 500px;
-    padding-top: 300px;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
 }
 .socialMediaIcon {
     color: #ffffff;
     border-radius: 5px;
-    font-family: 'Wotfard';
-    padding: 5px;
-    transition: transform 0.3s ease-in;
+    padding: 8px;
+    transition: all 0.3s ease;
     cursor: pointer;
   
     &:hover {
-      transform: scale(1.10)
+        transform: scale(1.1);
+        color: #fbbf24;
     }
-  }
+}

@@ -14,7 +14,7 @@ import Footer from "./components/footer/Footer.jsx";
 
 // Import von Pages
 import Home from "./pages/home/Home.jsx";
-import Page1 from "./pages/page1/Page1.jsx"
+import Gallery from "./pages/gallery/Gallery.jsx";
 import Page2 from "./pages/page2/Page2.jsx"
 
 export default function App() {
@@ -25,7 +25,7 @@ export default function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/page1" element={<Page1 />} />
+            <Route path="/page1" element={<Gallery />} />
             <Route path="/page2" element={<Page2 />} />
           </Routes>
           <Footer />

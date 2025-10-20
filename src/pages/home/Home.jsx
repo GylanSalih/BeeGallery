@@ -5,7 +5,7 @@ import { ArrowUpRight, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./Home.module.scss";
 
 // Componente Importieren
-import ModernArticle from "../../components/modern-article/ModernArticle"
+import Card from "../../components/Cards/Card"
 import Filterbar from "../../components/filterbar/Filterbar";
 import Slider from "../../components/slider/Slider"
 
@@ -50,7 +50,9 @@ export default function Home() {
       </div>
 
 
-      <ModernArticle/>
+      <div className={styles.cardContainer}>
+        <Card/>
+      </div>
     </div>
   );
 }

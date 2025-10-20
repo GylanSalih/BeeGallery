@@ -1,78 +1,81 @@
-.header {
-  background: rgba(35, 33, 44, 0.95);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3.9px);
-  -webkit-backdrop-filter: blur(3.9px);
+.headerWrapper {
   position: fixed;
-  width: 100%;
-  max-height: 50px;
-  justify-content: start;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0;
+}
+
+.header {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 0;
+  max-width: 100%;
+  margin: 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.headerContent {
+  display: flex;
   align-items: center;
-  gap: 50px;
-  padding: 0px;
-  min-height: 72px;
-  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  min-height: 50px;
+  max-width: 1200px;
   margin: 0 auto;
-  border-radius: 10px;
 }
 
-
-
-.navLinksPcOnly {
-  width: 100%;
-  justify-content: right;
-  align-items: right;
+.logoLink {
   display: flex;
-  gap: 15px;
-  padding-right: 10px;
-
-@media (max-width: 480px) {
-    display: none;
-}
-}
-
-.link {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1.0rem;
-  font-family: "Inter", sans-serif;
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-}
-
-.MobileIconsOnly {
-  width: 100%;
-  justify-content: right;
-  align-items: right;
-  display: flex;
-  gap: 15px;
-  padding-right: 10px;
-
-  @media (min-width: 480px) {
-    display: none;
-}
+  align-items: center;
 }
 
 .logo {
-  border-radius: 10px;
   width: 48px;
   height: 48px;
-  padding-left: 10px;
+  border-radius: 8px;
 }
 
-.IconHeader {
-  color: #ffffff;
-  border-radius: 5px;
-  font-family: 'Wotfard';
-  padding: 5px;
-  transition: transform 0.3s ease-in;
-  cursor: pointer;
+.navLinks {
+  display: flex;
+  gap: 2rem;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
 
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  
   &:hover {
-    transform: scale(1.10)
+    color: #fbbf24;
+  }
+}
+
+.mobileMenu {
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.menuIcon {
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
   }
 }

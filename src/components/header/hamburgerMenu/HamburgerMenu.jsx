@@ -19,10 +19,10 @@ export default function HamburgerMenu({ closeMenu }) {
 
       <div className={styles.navLinksMobile}>
         <Link to="/page1" className={styles.link} onClick={closeMenu}>
-          Page 1
+          Gallery
         </Link>
         <Link to="/page2" className={styles.link} onClick={closeMenu}>
-          Page 2
+          About
         </Link>
       </div>
 

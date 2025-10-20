@@ -1,0 +1,15 @@
+.galleryContainer {
+  min-height: 100vh;
+  background: #000;
+  padding-top: 80px;
+}
+
+.sliderWrapper {
+  margin-bottom: 3rem;
+  padding: 0 2rem;
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+}
