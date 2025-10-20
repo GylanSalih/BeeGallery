@@ -16,7 +16,7 @@ const Footer = () => {
           <Facebook size={24} className={styles.socialMediaIcon} />
           <Youtube size={24} className={styles.socialMediaIcon} />
         </div>
-        <p className={styles.copyright}>Copyright © 2025 React-posts-app</p>
+        <p className={styles.copyright}>Copyright © 2025 Gallery-app</p>
       </div>
     </div>
   );

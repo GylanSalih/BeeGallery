@@ -1,0 +1,34 @@
+.ParentContainer {
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    max-width: 200px;
+}
+
+.sliderImg {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+
+/* --------------------- Slider Icons Links/Rechts --------------------- */
+
+.iconRight {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.iconLeft {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    color: #fff;
+    cursor: progress;
+}
+

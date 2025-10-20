@@ -2,144 +2,175 @@
   width: 100%;
   min-height: 100vh;
   background-color: #000;
+  padding-top: 100px;
 }
 
 .cardContainer {
-    display: grid;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-content: center;
+  list-style: none;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 30px 0;
+
+  @media (max-width: 1550px) {
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    justify-content: center;
-    list-style: none;
-    width: 100%;
-    max-width: 1800px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    padding: 30px 0;
-  
-    @media (max-width: 1550px) {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-  
-    @media (max-width: 1250px) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-  
-    @media (max-width: 1024px) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-  
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      gap: 20px;
-      max-width: 550px;
-    }
-  
-    @media (max-width: 480px) {
-      padding: 20px 0;
-      gap: 16px;
-    }
+    gap: 25px;
   }
-  
-  
-  
-    .Posts {
-      max-width: 1800px;
-      margin: 0 auto;
-      padding: 2rem 2rem;
-  
-      @media (max-width: 768px) {
-        padding: 1.5rem 1rem;
-      }
-    }
-  
-    .title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-      padding: 0;
-  
-      h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #fff;
-        margin: 0;
-  
-        @media (max-width: 768px) {
-          font-size: 2rem;
-        }
-  
-        @media (max-width: 480px) {
-          font-size: 1.75rem;
-        }
-      }
-  
-      @media (max-width: 768px) {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: flex-start;
-      }
-    }
-  
-    /* ---------------------------- No Posts Found ---------------------------- */
-    
-    
-    // später bearbeiten
-    .noPostsFound {
-      text-align: center;
-      display: flex;
-      padding: 2rem;
-      color: #666;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.125rem;
-    }
-    
-    /* ---------------------------- Loads More Button ---------------------------- */
-  
-    
-    .loadMoreContainer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 2rem;
-    }
-    
-    
-    .loadMoreButton {  
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 2rem;
-        padding: 10px 20px;
-        border-radius: 10px;
-        border: 1px solid #333;
-        cursor: pointer;
-        font-size: 0.95rem;
-        font-weight: 500;
-        transition: all 0.2s ease;
-        white-space: nowrap;
-      }
-  
-  
-        
-    /* ---------------------------- Currently Loaded Posts Container ---------------------------- */
-  
-    .currentlyLoadedPostsContainer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 2rem;
-      padding: 1rem;
-      border-radius: 10px;
-    }
-    
-  
-    .currentlyLoadedPosts {
-      font-size: 1.125rem;
-      font-weight: 500;
-      color: #fff;
-    }
+
+  @media (max-width: 1250px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 550px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 0;
+    gap: 16px;
+  }
+}
+
+.Posts {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 2rem 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
+  }
+}
+
+
+
+
+
+
+
+/* ---------------------------- Button Styling Start ---------------------------- */
+
+// Button Parent
+.BtnContainer {
+  gap: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+// Delete Button
+.deleteBtn {
+  width: 96px;
+  height: 48px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+
+  background-color: #3A3637;
+  font-family: 'Wotfard';
+  color: #fff;
+  transition: transform 0.3s ease-in-out;
+
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+// View Project Button
+.ViewProjectBtn {
+  width: 96px;
+  height: 48px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: #3A3637;
+  font-family: 'Wotfard';
+  color: #fff;
+  transition: transform 0.3s ease-in-out;
+
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+// Add More Button
+.AddMoreBtn {
+  width: 96px;
+  height: 48px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: #3A3637;
+  font-family: 'Wotfard';
+  color: #fff;
+  transition: transform 0.3s ease-in-out;
+
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+/* ---------------------------- Button Styling END ---------------------------- */
+
+/* ---------------------------- ICONS GLOBAL START ---------------------------- */
+
+.IconGlobal {
+  color: #ffffff;
+  border-radius: 5px;
+  font-family: 'Wotfard';
+  padding: 5px;
+  transition: transform 0.3s ease-in;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.10)
+  }
+}
+
+.copyright {
+  font-family: 'Wotfard';
+}
+/* ---------- Fonts, Heading, Paragraphs and Texts Styling Start -------------- */
+
+
+// .textWrapper {
+//   background-color: #6b4701;
+//   width: 350px;
+//   justify-content: center;
+// }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #ffffff;
+  font-family: 'Wotfard';
+}
+
+p {
+  color: #ffffff;
+  font-family: 'Wotfard';
+}
+
+/* ---------- Fonts, Heading, Paragraphs and Texts Styling END -------------- */
+
+
+
+/* --------------------- Inside Card Corners --------------------- */
+

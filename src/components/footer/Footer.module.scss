@@ -5,6 +5,7 @@
   justify-content: center;
   gap: 10px;
   padding-top: 100px;
+  
 }
 
 .socialMedia {
@@ -12,9 +13,22 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .socialMediaIcon {
   color: #ffffff;
+  border-radius: 5px;
+  font-family: 'Wotfard';
+  padding: 5px;
+  transition: transform 0.3s ease-in;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.10)
+  }
+}
+
+.copyright {
+  font-family: 'Wotfard';
 }

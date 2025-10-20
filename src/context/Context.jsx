@@ -14,8 +14,7 @@ const PosterContext = createContext(null);
 export const usePoster = () => {
   const context = useContext(PosterContext);
   if (!context) {
-    // or if (context === null) {}
-    throw new Error("usePoster must be used within a PosterProvider");
+    throw new Error("usePoster must be used within a GalleryProvider");
   }
   return context;
 };
@@ -35,7 +34,7 @@ const INITIAL_STATE = {
   log: "",
 };
 
-export const PosterProvider = ({ children }) => {
+export const GalleryProvider = ({ children }) => {
   const [filteredPosts, setFilteredPosts] = useState([]);
 
   // state für State & Dispatch
@@ -226,7 +225,6 @@ export const PosterProvider = ({ children }) => {
     setPage,
     setError,
     setLimit,
-    filteredPosts,
     setFilteredPosts,
     handleSearch,
     loadMoreButton,

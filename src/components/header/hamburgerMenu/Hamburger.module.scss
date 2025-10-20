@@ -1,0 +1,75 @@
+.mainWrapper {
+    width: 100%;
+    height: 100%;
+    background-color: green;
+    z-index: 999;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transition: 0.4s ease-in-out;
+    min-width: 380px;
+}
+
+.ParentContainer {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    background-color: rgba(35, 33, 44, 0.95);
+    position: relative;
+    text-align: center;
+    align-items: center;
+
+
+}
+
+/* --------------------- CloseIcon Area --------------------- */
+.CloseIcon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+/* --------------------- Nav Area --------------------- */
+
+.navLinksMobile {
+    padding-top: 300px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.link {
+    font-size: 36px;
+    font-family: 'Wotfard';
+    color: white;
+    line-height: 5.5rem;
+    text-decoration: none;
+}
+
+/* --------------------- Socials Bottom --------------------- */
+
+.socialMedia {
+    min-height: 500px;
+    padding-top: 300px;
+}
+.socialMediaIcon {
+    color: #ffffff;
+    border-radius: 5px;
+    font-family: 'Wotfard';
+    padding: 5px;
+    transition: transform 0.3s ease-in;
+    cursor: pointer;
+  
+    &:hover {
+      transform: scale(1.10)
+    }
+  }

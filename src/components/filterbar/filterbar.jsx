@@ -1,56 +1,43 @@
-import React, { useState } from "react";
-import styles from "./filterbar.module.scss";
-import { usePoster } from "../../context/Context.jsx";
+import React, { useState, useEffect } from "react";
+import { X, Menu, AudioLines, Search } from "lucide-react";
 
-const Filterbar = () => {
-  const { sortByUserId, searchTerm, handleSearch } = usePoster();
-  const [selectedUserId, setSelectedUserId] = useState("all");
+// import Styles
+import styles from "./Filterbar.module.scss";
+// const [search, setIsSearch] = useState("");
 
-  console.log(handleSearch);
+// const changeHandler = (e) => {
+//     e.preventDefault();
+//     setIsSearch(e.target.value);
+// }
 
-  const handleSelect = (e) => {
-    const userId = e.target.value;
-    setSelectedUserId(userId);
-    console.log(userId);
-    if (userId === "all") {
-      sortByUserId("");
-    } else {
-      sortByUserId(userId);
-    }
-  };
-
-  const resetHandler = () => {
-    sortByUserId("");
-    setSelectedUserId("all");
-  }
+export default function Filterbar() {
   return (
-    <div className={styles.simpleWrapper}>
-      <div className={styles.filterbar}>
-        <p>Filter</p>
-        <input 
-          placeholder="Search posts..."
-          className={styles.input}
+    <div className="app">
+      <h1>Filterbar</h1>
 
-          type="text" 
-          value={searchTerm} 
-          onChange={(e) => handleSearch(e)}
-          />
-        <select 
-          className={styles.selectdropdown} 
-          onChange={handleSelect}
-          value={selectedUserId}
-        >
-          <option value="all">Show all</option>
-          <option value="1">User 1</option>
-          <option value="2">User 2</option>
-          <option value="3">User 3</option>
-          <option value="4">User 4</option>
-          <option value="5">User 5</option>
-        </select>
-        <button className={styles.clearbutton} type="reset" onClick={resetHandler}>Clear</button>
+      {/* value={value} onChange={() => changeHandler(e)} */}
+      <form className={styles.searchContainer}>
+        <Search size={24} className={styles.searchIcon} />
+        <input type="search" placeholder="Search your Items" name="searchbar" />
+        <button type="submit" className={styles.submitBtn}>Search</button>
+      </form>
+
+      <div className={styles.ParentContainer}>
+        <div className={styles.BtnContainer}>
+          <p>Filters</p>
+          <button className={styles.FilterBtns}>Add More</button>
+          <button className={styles.FilterBtns}>Delete</button>
+          <button className={styles.FilterBtns}>View Project</button>
+          <button className={styles.FilterBtns}>View Project</button>
+        </div>
       </div>
+
+      {/* ist eine Auflistung mit zahlen 1.xx 2.yy 3.zzz */}
+      {/* <ol className={styles.ol}>
+        <li className={styles.li}>
+            hey
+        </li>
+      </ol> */}
     </div>
   );
-};
-
-export default Filterbar;
+}
