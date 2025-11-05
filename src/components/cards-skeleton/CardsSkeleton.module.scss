@@ -1,0 +1,141 @@
+/* ===== SKELETON Animation START ===== */
+
+/* Base skeleton animation */
+@keyframes skeletonLoading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Base skeleton element */
+%skeletonBase {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeletonLoading 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* ===== PORTFOLIO SKELETON STYLES ===== */ /* Base animation */
+@keyframes Loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+} 
+/* ===== SKELETON Animation END ===== */
+
+
+/* Base skeleton element */
+%skeletonBase {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeletonLoading 1.5s infinite;
+  border-radius: 8px;
+} /* ===== GRID SKELETON ===== */
+
+.Grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-content: center;
+  list-style: none;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 3rem;
+  &.cardsLayout {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
+    gap: 24px;
+  }
+}
+.Card {
+  width: 450px;
+  height: 400px;
+  background: transparent;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  @media (max-width: 1024px) {
+    width: 100%;
+    height: 320px;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    min-height: 300px;
+  }
+  @media (max-width: 480px) {
+    min-height: 260px;
+  }
+}
+.Figure {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.Image {
+  @extend %skeletonBase;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+.Overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+.OverlayContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.ItemTitle {
+  @extend %skeletonBase;
+  width: 200px;
+  height: 24px;
+  animation-delay: 0.2s;
+}
+.ItemCategory {
+  @extend %skeletonBase;
+  width: 100px;
+  height: 16px;
+  animation-delay: 0.3s;
+} /* ===== MAIN PORTFOLIO SKELETON ===== */
+.portfolio {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #0a0a0a 0%,
+    #1a1a1a 100%
+  ); /* Ensure smooth transitions when skeleton disappears */
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+  &.fadeOut {
+    opacity: 0;
+  }
+}

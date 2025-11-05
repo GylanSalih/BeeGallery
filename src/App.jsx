@@ -13,20 +13,25 @@ import Header from "./components/header/Header.jsx";
 import Footer from "./components/footer/Footer.jsx";
 
 // Import von Pages
-import Home from "./pages/home/Home.jsx";
+// import Home from "./pages/home/Home.jsx";
 import Gallery from "./pages/gallery/Gallery.jsx";
-import Page2 from "./pages/page2/Page2.jsx"
+import SinglePostView from "./pages/single-post-view/SinglePostView.jsx"
+import EditPost from "./pages/edit-post/EditPost.jsx";
+import AddNewPost from "./pages/add-new-post/AddNewPost.jsx";
 
 export default function App() {
   return (
     <GalleryProvider>
-      <div className="App">
+      <div className="app">
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/page1" element={<Gallery />} />
-            <Route path="/page2" element={<Page2 />} />
+            <Route path="/" element={<Gallery />} />
+            <Route path="/gallery" element={<Gallery />} />
+            
+            <Route path="/AddNewPost" element={<AddNewPost />} />
+            <Route path="/editpost/:postId" element={<EditPost />} />
+            <Route path="/Posts/:postId" element={<SinglePostView />} />
           </Routes>
           <Footer />
         </BrowserRouter>

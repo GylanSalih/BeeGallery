@@ -2,25 +2,27 @@ import React, { useState } from 'react';
 import styles from "./Slider.module.scss";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+import { useGalleryPoster } from "../../context/Context";
+
 const SlideItems = [
     {
         id: 1,
-        title: "Color Palettes",
-        description: "Discover beautiful color combinations for your projects",
+        title: "Slider 1 Title",
+        description: "Description",
         Img: "./images/ColorPalettes.png",
         alt: "Color Palettes Collection",
     },
     {
         id: 2,
-        title: "Dark Themes",
-        description: "Modern dark mode designs for a sleek look",
+        title: "Slider 2 Title",
+        description: "Description",
         Img: "./images/DarkDefault.png",
         alt: "Dark Theme Examples",
     },
     {
         id: 3,
-        title: "Golden Bee",
-        description: "Premium golden bee design elements",
+        title: "Slider 3 Title",
+        description: "Description",
         Img: "./images/GoldenBee.webp",
         alt: "Golden Bee Design",
     },
@@ -28,6 +30,7 @@ const SlideItems = [
 
 export default function Slider() {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const { data } = useGalleryPoster();
 
     const goToNext = () => {
         if (currentSlide === SlideItems.length - 1) {
@@ -48,7 +51,9 @@ export default function Slider() {
     return (
         <div className={styles.sliderContainer}>
             <div className={styles.sliderContent}>
-                <img 
+                <img
+                    // src={data.download_url}
+                    // src={SlideItems[currentSlide].download_url} 
                     src={SlideItems[currentSlide].Img} 
                     alt={SlideItems[currentSlide].alt} 
                     className={styles.sliderImg}
@@ -66,8 +71,9 @@ export default function Slider() {
                 <ChevronRight size={24} />
             </button>
             
+            
             <div className={styles.dots}>
-                {SlideItems.map((emptry, index) => (
+                {SlideItems.map((_, index) => (
                     <button
                         key={index}
                         className={index === currentSlide ? styles.dotActive : styles.dotInactive}

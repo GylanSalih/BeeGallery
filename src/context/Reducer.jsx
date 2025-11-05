@@ -1,6 +1,7 @@
-function postReducer(state, action) {
+/* --------------------- nochmal bearbeiten --------------------- */
+function galleryReducer(state, action) {
   switch (action.type) {
-    case "POST_FILLER":
+    case "SET_POSTS":
       return {
         ...state,
         posts: action.payload,
@@ -10,7 +11,7 @@ function postReducer(state, action) {
       console.log(state);
       return {
         ...state,
-        OpenUi: true,
+        openUi: true,
         // posts: [...state.posts, action.payload],
       };
     case "DELETE_POST":
@@ -38,11 +39,10 @@ function postReducer(state, action) {
         isError: true,
         error: action.payload,
       };
-    case "CATCH_ERROR":
+    case "HANDLE_ERROR":
       return {
         ...state,
-        error: true,
-        log: console.log("${action.type"),
+        error: action.payload || true,
       };
     case "UPDATE_POST":
       return {
@@ -62,7 +62,7 @@ function postReducer(state, action) {
         ...state,
         posts: action.payload,
       };
-    case "SORT_BY_ID":
+    case "SORT_POSTS":
       return {
         ...state,
         posts: action.payload,
@@ -83,7 +83,7 @@ function postReducer(state, action) {
           ...state,
           limit: action.payload,
         };
-    case "SET_USER_ID":
+    case "SET_USER_FILTER":
       return {
         ...state,
         userId: action.payload,
@@ -94,7 +94,7 @@ function postReducer(state, action) {
           userId: "",
           selectedUserId: "",
         };
-    case "ADD_NEW_POST_CLOSER_OPENER":
+    case "TOGGLE_ADD_POST_MODAL":
       return {
         ...state,
         openUi: action.payload,
@@ -104,4 +104,4 @@ function postReducer(state, action) {
   }
 }
 
-export default postReducer;
+export default galleryReducer;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
-import HamburgerMenu from "./hamburgerMenu/HamburgerMenu";
+import HamburgerMenu from "./hamburger-menu/HamburgerMenu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,8 +26,10 @@ const Header = () => {
           </Link>
 
           <nav className={styles.navLinks}>
-            <Link to="/page1" className={styles.navLink}>Gallery</Link>
-            <Link to="/page2" className={styles.navLink}>About</Link>
+            <Link to="/gallery" className={styles.navLink}>Gallery</Link>
+            <Link to="/Posts/:postId" className={styles.navLink}>Posts Single View</Link>
+            <Link to="/editpost/:postId" className={styles.navLink}>Edit Post</Link>
+            <Link to="/AddNewPost" className={styles.navLink}>Add New Post</Link>
           </nav>
 
           <div className={styles.mobileMenu}>
